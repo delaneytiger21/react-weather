@@ -1,12 +1,15 @@
+import Weather from "./Weather";
 import './App.css';
+
 
 export default function App() {
   return (
     <div className="App">
+      <Weather />
       <footer>
         Built by Delaney Tiger, open-sourced on{" "}
         <a
-          href="https://github.com/delaneytiger21/react-weather-app"
+          href="https://github.com/delaneytiger21/react-weather"
           target="_blank"
           rel="noreferrer"
         >
@@ -14,7 +17,7 @@ export default function App() {
         </a>{" "}
         and hosted on{" "}
         <a
-          href="https://splendorous-wisp-6961c8.netlify.app/"
+          href="https://ubiquitous-kangaroo-0f21bf.netlify.app/"
           target="_blank"
           rel="noreferrer"
         >
