@@ -34,7 +34,7 @@
   color: rgb(33, 33, 33);
   font-size: 64px;
   position: relative;
-  top: 15px;
+  top: 18px;
   line-height: 64px;
   font-weight: 400;
 }
@@ -45,6 +45,5 @@
   font-weight: 400;
   position: relative;
   line-height: 1;
-  top: -20px;
-  margin-left: 5px;
+  top: -18px;
 }	
