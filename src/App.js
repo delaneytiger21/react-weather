@@ -7,7 +7,7 @@ export default function App() {
     <div className="App">
       <div className="container">
         <Weather />
-        <footer className="mt-3">
+        <footer>
           Built by Delaney Tiger, open-sourced on{" "}
           <a
             href="https://github.com/delaneytiger21/react-weather"
