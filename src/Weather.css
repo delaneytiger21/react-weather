@@ -24,8 +24,9 @@
   line-height: 19px;
   list-style: none;
 }
-.Weather img {
-  margin-right: 20px;
+.Weather canvas {
+  margin-right: 15px;
+  margin-top: 5px;
   display: inline-block;
 }
 
@@ -34,9 +35,10 @@
   color: rgb(33, 33, 33);
   font-size: 64px;
   position: relative;
-  top: 18px;
+  top: -3px;
   line-height: 64px;
   font-weight: 400;
+  margin-right: 5px;
 }
 
 .Weather .unit {
@@ -45,5 +47,5 @@
   font-weight: 400;
   position: relative;
   line-height: 1;
-  top: -18px;
+  bottom: 36px;
 }	
