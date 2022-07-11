@@ -1,5 +1,6 @@
 import React, { useState } from "react";
- import WeatherInfo from "./WeatherInfo"
+import WeatherInfo from "./WeatherInfo"
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -7,7 +8,7 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity)
 
-  function handleResponse(response) {
+  function handleResponse(response) {  
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -17,13 +18,14 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
+      coord: response.data.coord,
     });
 
   }
  
 
   function search() {
-  const apiKey = "80b5b4bfb3171079c6d323d0bf6f3213";
+  const apiKey = "e18c87736657d97d21da3471d3079924";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
   }
@@ -42,35 +44,36 @@ export default function Weather(props) {
 
   if (weatherData.ready) { 
     return (
-    <div className="Weather">
-
-      <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-9">
-            <input
-              type="search"
-              placeholder="Enter a city.."
-              className="form-control"
-              autoFocus="on"
-              onChange={handleCityChange} />
+      <div className="Weather">
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city.."
+                className="form-control"
+                autoFocus="on"
+                onChange={handleCityChange}
+              />
+            </div>
+            <div className="col-3">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
+            </div>
           </div>
-          <div className="col-3">
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary w-100" />
-          </div>
-        </div>
-        </form> 
+        </form>
         <WeatherInfo info={weatherData} />
-  
+        <WeatherForecast coordinates={weatherData.coord} />
+      </div>
+    );
     
-
-    </div>
-  );
   } else {
   search()
-  return "Loading...";
+    return "Loading...";
+    
   }
 
 }
