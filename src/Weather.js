@@ -6,7 +6,7 @@ import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity)
+  const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {  
     setWeatherData({
@@ -18,21 +18,18 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
-      coord: response.data.coord,
+      coordinates: response.data.coord,
     });
   }
  
   function handleSubmit(event) {
     event.preventDefault();
-    search()
+    search();
   }
-// search for city 
   
   function handleCityChange(event) {
-    event.preventDefault();
-    setCity(event.target.value)
+    setCity(event.target.value);
   }
-  // select city
 
   function search() {
     let apiKey = "0e27653dd62cdeffcdb4a7ba79215871";
@@ -64,14 +61,11 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo info={weatherData} />
-        <WeatherForecast coordinates={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
-    
   } else {
-  search()
-    return "Loading...";
-    
+    search();
+    return "Loading..."; 
   }
-
 }

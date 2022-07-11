@@ -8,7 +8,7 @@ export default function App() {
     <div className="App">
       <div className="container">
 
-        <Weather defaultCity="Austin"/>
+        <Weather defaultCity="Austin" />
         
         <footer>
           Built by Delaney Tiger, open-sourced on{" "}
